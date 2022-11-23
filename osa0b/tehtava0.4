@@ -1,0 +1,26 @@
+title tehtävä 0.4
+
+selain->palvelin: GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin->selain: HTML-koodi
+
+selain->palvelin: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+palvelin-->selain: new_note
+
+note over selain
+HTTPS-POST pyyntö tehdään palvelimen osoitteeseen new_note, johon palvelin vastaa 
+statuskoodilla 302 (redirectaa), jolloin selain lataa uudestaan
+muistiinpanojen sivun, aiheuttaen lisää HTTP-pyyntöjä
+end note
+
+selain->palvelin: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+
+note over selain
+selain aloittaa js-koodin suorittamisen ja pyytää JSON-dataa 
+palvelimelta
+end note
+
+selain->palvelin: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: data.json
